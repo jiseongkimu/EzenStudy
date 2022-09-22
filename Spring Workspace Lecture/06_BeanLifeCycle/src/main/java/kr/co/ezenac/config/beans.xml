@@ -2,20 +2,28 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!-- <bean class="kr.co.ezenac.beans.TestBean1"></bean>  -->
-	
+						http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="default_init"
+	default-destroy-method="default_destroy">
+	<!-- <bean class="kr.co.ezenac.beans.TestBean1"></bean> -->
+
 	<!-- <bean id="test1" class="kr.co.ezenac.beans.TestBean1" lazy-init="true"></bean> -->
-	
-	<bean id="test1"
-		class="kr.co.ezenac.beans.TestBean1"
-		lazy-init="true"
-		init-method="bean1_init"></bean>
-		
-	<bean id="test2"
-		class="kr.co.ezenac.beans.TestBean2"
-		lazy-init="true"
-		init-method="bean2_init"
+
+
+	<bean id="test1" class="kr.co.ezenac.beans.TestBean1"
+		lazy-init="true" init-method="bean1_init"
+		destroy-method="bean1_destroy"></bean>
+
+	<bean id="test2" class="kr.co.ezenac.beans.TestBean2"
+		lazy-init="true" init-method="bean2_init"
 		destroy-method="bean2_destroy"></bean>
+
+	<bean id="test3" class="kr.co.ezenac.beans.TestBean3"
+		lazy-init="true"></bean>
+		
+	<!-- 설정한 default 메소드가 없으므로 해당 메소드 호출 안 됨 -->
+	<bean id="test4" class="kr.co.ezenac.beans.TestBean4"
+		lazy-init="true"></bean>
+		
 
 </beans>
