@@ -43,11 +43,15 @@ public class MainClass {
 		
 		TestBean2 t200 = new TestBean2(d1, d2);
 		t200.printData();
-		
 		line();
 		
 		TestBean2 test2 = ctx.getBean("test2", TestBean2.class);
 		test2.printData();
+		line();
+		
+		TestBean2 obj9= ctx.getBean("obj9", TestBean2.class);
+		obj9.printData();
+		line();
 		
 	}
 	

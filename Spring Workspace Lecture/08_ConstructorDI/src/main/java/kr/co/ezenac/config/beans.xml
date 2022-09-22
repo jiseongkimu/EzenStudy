@@ -52,23 +52,24 @@
 		<constructor-arg value="Spring" type="java.lang.String" index="2"></constructor-arg>
 		<constructor-arg value="200" index="0"></constructor-arg>
 	</bean>
-	
-	<bean id="data1"
-		class="kr.co.ezenac.beans.DataBean"
-		lazy-init="true">
-	</bean>
-	
-	<bean id="data2"
-		class="kr.co.ezenac.beans.DataBean"
-		lazy-init="true">
-	</bean>
-	
-	<bean id="test2"
+	 
+	 <bean id="test2"
 		class="kr.co.ezenac.beans.TestBean2"
 		lazy-init="true">
-		<constructor-arg ref="data1" type="DataBean"></constructor-arg>
-		<constructor-arg ref="data2" type="DataBean"></constructor-arg>
+		<constructor-arg>
+			<bean class="kr.co.ezenac.beans.DataBean"></bean>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="kr.co.ezenac.beans.DataBean"></bean>
+		</constructor-arg>
 	</bean>
+	
+	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean" scope="prototype"></bean>
+	<bean id="obj9" class="kr.co.ezenac.beans.TestBean2" lazy-init="true">
+		<constructor-arg ref="data_bean"></constructor-arg>
+		<constructor-arg ref="data_bean"></constructor-arg>
+	</bean>
+	
 	
 
 </beans>
