@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="t1" class="kr.co.ezenac.beans.TestBean">
+		<property name="list1">
+			<list>
+				<value>목록1</value>
+				<value>목록2</value>
+				<value>목록3</value>
+			</list>
+		</property>
+
+
+		<property name="list2">
+			<list>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+			</list>
+		</property>
+		
+		<property name="list3">
+			<list>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+			</list>
+		</property>
+		
+		<property name="set1">
+			<set>
+				<value>목록1</value>
+				<value>목록2</value>
+				<value>목록3</value>
+			</set>
+		</property>
+		
+		<property name="set2">
+			<set>
+				<value type="int">100</value>
+				<value type="int">200</value>
+				<value type="int">300</value>
+				<value type="int">400</value>
+				<value type="int">500</value>
+			</set>
+		</property>
+		
+		<property name="set3">
+			<list>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<bean class="kr.co.ezenac.beans.DataBean"></bean>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+				<ref bean="data_bean"></ref>
+			</list>
+		</property>
+		
+		<property name="map1">
+			<map>
+				<entry key="a1" value="문자열"></entry>
+				<entry key="a2" value="100" value-type="int"></entry>
+				<entry key="a3"><bean class="kr.co.ezenac.beans.DataBean"></bean></entry>
+				<entry key="a4" value-ref="data_bean"></entry>
+				<entry key="a5">
+					<list>
+						<value>문자열1</value>
+						<value>문자열2</value>
+						<value>문자열3</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+		
+	</bean>
+	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean" scope="prototype"></bean>
+	
+</beans>
+
