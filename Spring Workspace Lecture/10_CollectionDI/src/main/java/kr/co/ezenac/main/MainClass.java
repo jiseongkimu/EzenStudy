@@ -2,6 +2,7 @@ package kr.co.ezenac.main;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -52,8 +53,30 @@ public class MainClass {
 		lineL();
 		
 		Map<String, Object> map1 = t1.getMap1();
-		String str = (String)map1.get("a1");
-		System.out.printf("a1 : %s\n", str);
+		String a1 = (String)map1.get("a1");
+		System.out.printf("a1 : %s\n", a1);
+		int a2 = (int)map1.get("a2");
+		System.out.printf("a2 : %d\n", a2);
+		DataBean a3 = (DataBean)map1.get("a3");
+		System.out.printf("a3 : %s\n", a3);
+		DataBean a4 = (DataBean)map1.get("a4");
+		System.out.printf("a4 : %s\n", a4);
+		List<String> a5 = (List<String>)map1.get("a5");
+		System.out.printf("a5 : %s\n", a5);
+		
+		lineL();
+		
+		Properties prop1 = t1.getProp1();
+		String p1 = prop1.getProperty("p1");
+		String p2 = prop1.getProperty("p2");
+		String p3 = prop1.getProperty("p3");
+		
+		System.out.printf("p1 : %s\n", p1);
+		System.out.printf("p2 : %s\n", p2);
+		System.out.printf("p3 : %s\n", p3);
+		
+		ctx.close();
+		
 		
 	}
 	

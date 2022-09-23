@@ -76,6 +76,14 @@
 			</map>
 		</property>
 		
+		<property name="prop1">
+			<props>
+				<prop key="p1">문자열1</prop>
+				<prop key="p2">문자열2</prop>
+				<prop key="p3">문자열3</prop>
+			</props>
+		</property>
+		
 	</bean>
 	<bean id="data_bean" class="kr.co.ezenac.beans.DataBean" scope="prototype"></bean>
 	
