@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-						http://www.springframework.org/schema/beans/spring-beans.xsd">
+						http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
 
 	<bean id="obj1" class="kr.co.ezenac.beans.TestBean1">
 		<property name="data1" ref="data_bean1"></property>
@@ -15,6 +16,7 @@
 	<bean id="data1" class="kr.co.ezenac.beans.DataBean1"></bean>
 	<bean id="data2" class="kr.co.ezenac.beans.DataBean1"></bean>
 	
+	<!-- 같은 타입의 객체(bean객체)를 생성자로 주입 -->
 	<bean id="obj3" class="kr.co.ezenac.beans.TestBean2" autowire="byType"></bean>
 	<!-- <bean class="kr.co.ezenac.beans.DataBean2" scope="prototype"></bean> -->
 	
@@ -24,6 +26,29 @@
 	</bean>
 	
 	<bean id="data_bean2" class="kr.co.ezenac.beans.DataBean2"></bean>
+	
+	<!--  -->
+	<bean id="obj5" class="kr.co.ezenac.beans.TestBean3" autowire="constructor"></bean>
+	
+	<bean id="obj6" class="kr.co.ezenac.beans.TestBean3">
+		<constructor-arg value="100" index="0" type="int"></constructor-arg>
+		<constructor-arg value="문자열" index="1" ></constructor-arg>
+		<constructor-arg ref="data_bean2" index="2" ></constructor-arg>
+		<constructor-arg ref="data_bean2" index="3" ></constructor-arg>
+	</bean>
+	
+	<!-- 나머지 생성자 매개변수를 따로 지정하지 않을 시 autowire가 알아서 주입 -->
+	<bean id="obj7" class="kr.co.ezenac.beans.TestBean3" autowire="constructor">
+		<constructor-arg value="200" index="0" type="int"></constructor-arg>
+		<constructor-arg value="문자열2" index="1" ></constructor-arg>
+	</bean>
+	
+	<!-- default autowire : 최상단 beans 태그에서 설정 가능
+	생성자에 할당할 수 있는지 확인 후 없으면 setter에서 확인하여 할당하고 기본생성자가 있으면 기본생성자 호출-->
+	<bean id="obj8" class="kr.co.ezenac.beans.TestBean1"></bean>
+	
+	<!-- autowire="no" : 주입 안함 -->
+	<bean id="obj9" class="kr.co.ezenac.beans.TestBean1" autowire="no"></bean>
 	
 </beans>
 

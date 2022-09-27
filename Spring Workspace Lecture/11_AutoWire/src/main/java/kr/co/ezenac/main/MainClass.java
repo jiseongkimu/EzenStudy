@@ -33,5 +33,41 @@ public class MainClass {
 		System.out.printf("obj4.data2 : %s\n", obj4.getData2());
 		System.out.printf("obj4.data3 : %s\n", obj4.getData3());
 		System.out.printf("obj4.data4 : %s\n", obj4.getData4());
+		
+		System.out.println("--------------------------");
+		
+		TestBean3 obj5 = ctx.getBean("obj5", TestBean3.class);
+		System.out.printf("obj5.data1 : %d\n", obj5.getData1());
+		System.out.printf("obj5.data2 : %s\n", obj5.getData2());
+		System.out.printf("obj5.data3 : %s\n", obj5.getData3());
+		System.out.printf("obj5.data4 : %s\n", obj5.getData4());
+		
+		System.out.println("--------------------------");
+		
+		TestBean3 obj6 = ctx.getBean("obj6", TestBean3.class);
+		System.out.printf("obj6.data1 : %d\n", obj6.getData1());
+		System.out.printf("obj6.data2 : %s\n", obj6.getData2());
+		System.out.printf("obj6.data3 : %s\n", obj6.getData3());
+		System.out.printf("obj6.data4 : %s\n", obj6.getData4());
+		
+		System.out.println("--------------------------");
+		
+		TestBean3 obj7 = ctx.getBean("obj7", TestBean3.class);
+		System.out.printf("obj7.data1 : %d\n", obj7.getData1());
+		System.out.printf("obj7.data2 : %s\n", obj7.getData2());
+		System.out.printf("obj7.data3 : %s\n", obj7.getData3());
+		System.out.printf("obj7.data4 : %s\n", obj7.getData4());
+		
+		System.out.println("--------------------------");
+		
+		TestBean1 obj8 = ctx.getBean("obj8", TestBean1.class);
+		System.out.printf("obj8.data1 : %s\n", obj8.getData1());
+		System.out.printf("obj8.data2 : %s\n", obj8.getData2());
+		
+		System.out.println("--------------------------");
+		
+		TestBean1 obj9 = ctx.getBean("obj9", TestBean1.class);
+		System.out.printf("obj9.data1 : %s\n", obj9.getData1());
+		System.out.printf("obj9.data2 : %s\n", obj9.getData2());
 	}
 }
