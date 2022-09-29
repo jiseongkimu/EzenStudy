@@ -11,6 +11,7 @@
 	</bean>
 	
 	<bean id="data_bean1" class="kr.co.ezenac.beans.DataBean1"></bean>
+	<bean id="data_bean2" class="kr.co.ezenac.beans.DataBean2"></bean>
 	
 	<!-- setter -->
 	<bean id="xml2" class="kr.co.ezenac.beans.TestBean1" lazy-init="true">
@@ -20,14 +21,21 @@
 	</bean>
 	
 	<!-- byName -->
-	<bean id="xml3" class="kr.co.ezenac.beans.TestBean1" lazy-init="true" autowire="byName">
+	<!-- <bean id="xml3" class="kr.co.ezenac.beans.TestBean1" lazy-init="true" autowire="byName">
 		<constructor-arg name="data1" type="int" value="300"></constructor-arg>
 		<constructor-arg name="data2" value="문자열5"></constructor-arg>
 		<constructor-arg name="data3" ref="data_bean1"></constructor-arg>
-	</bean>
-
+	</bean> -->
+	
+	<bean id="xml3" class="kr.co.ezenac.beans.TestBean1" lazy-init="true" autowire="byName"></bean>
+	
+	<bean class="kr.co.ezenac.beans.DataBean3"></bean>
+	
+	<bean id="xml4" class="kr.co.ezenac.beans.TestBean3" autowire="byType"></bean>
+	
 	
 </beans>
+
 
 
 

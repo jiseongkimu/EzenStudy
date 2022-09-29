@@ -3,6 +3,8 @@ package kr.co.ezenac.main;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import kr.co.ezenac.beans.TestBean1;
+import kr.co.ezenac.beans.TestBean2;
+import kr.co.ezenac.beans.TestBean3;
 import kr.co.ezenac.config.BeanConfigClass;
 
 public class MainClass {
@@ -24,6 +26,11 @@ public class MainClass {
 		System.out.printf("xml3.data2 : %s\n", xml3.getData2());
 		System.out.printf("xml3.data3 : %s\n", xml3.getData3());
 		
+		TestBean3 xml4 = ctx1.getBean("xml4", TestBean3.class);
+		System.out.printf("xml4.data1 : %s\n", xml4.getData1());
+		System.out.printf("xml4.data2 : %s\n", xml4.getData2());
+		
+		
 		System.out.println("=====================================================");
 		
 		ctx1.close();
@@ -39,6 +46,14 @@ public class MainClass {
 		System.out.printf("java2.data2 : %s\n", java2.getData2());
 		System.out.printf("java2.data3 : %s\n", java2.getData3());
 		
+		TestBean2 java3 = ctx2.getBean("java3", TestBean2.class);
+		System.out.printf("java3.data1 : %s\n", java3.getData1());
+		System.out.printf("java3.data2 : %s\n", java3.getData2());
+		
+		TestBean3 java4 = ctx2.getBean("java4", TestBean3.class);
+		System.out.printf("java4.data1 : %s\n", java4.getData1());
+		System.out.printf("java4.data2 : %s\n", java4.getData2());
+		
 		
 		
 		ctx2.close();
@@ -46,3 +61,4 @@ public class MainClass {
 	}
 	
 }
+
