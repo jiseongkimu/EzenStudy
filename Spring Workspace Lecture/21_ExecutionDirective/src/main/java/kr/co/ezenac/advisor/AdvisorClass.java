@@ -6,7 +6,7 @@ public class AdvisorClass {
 	public void beforeMethod() {
 		System.out.println("beforeMethod 호출");
 	}
-	
+	/*
 	public void afterMethod() {
 		System.out.println("afterMethod 호출");
 	}
@@ -33,4 +33,5 @@ public class AdvisorClass {
 		System.out.println("afterThrowingMethod 호출");
 		System.out.println(e1);
 	}
+	*/
 }

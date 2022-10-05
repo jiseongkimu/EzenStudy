@@ -9,11 +9,30 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context.xsd
 						http://www.springframework.org/schema/aop
-						http://www.springframework.org/schema/aop/spring-aop.xsd"
-						>
+						http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<bean id="xml1" class="kr.co.ezenac.beans.TestBean1"></bean>
 	<bean id="xml2" class="kr.co.ezenac.beans.TestBean2"></bean>
 	<bean id="xml3" class="kr.co.ezenac.beans2.TestBean1"></bean>
+
+	<bean id="advisor1" class="kr.co.ezenac.advisor.AdvisorClass"></bean>
+
+	<aop:config>
+		<aop:aspect ref="advisor1">
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1())"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(int))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(String))"></aop:pointcut>  -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(int, int))"></aop:pointcut>  -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(int, String))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(*, *))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.method1(..))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.TestBean1.*(..))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void kr.co.ezenac.beans.*.method1(..))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void *.*.*.*(..))"></aop:pointcut> -->
+			<!-- <aop:pointcut id="point1" expression="execution(void *.*(..))"></aop:pointcut> -->
+			<aop:pointcut id="point1" expression="execution(* method1(..))"></aop:pointcut>
+			<aop:before method="beforeMethod" pointcut-ref="point1" />
+		</aop:aspect>
+	</aop:config>
 </beans>
 
 
