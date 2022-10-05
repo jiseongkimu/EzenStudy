@@ -1,0 +1,4 @@
+create table jdbc_table(
+	int_data num(100),
+	str_data varchar2(100)
+);
