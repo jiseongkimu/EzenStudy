@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	
+	<!-- 현재 웹앱에서 받아들이는 모든 요청에 대해 appServlet이라는 이름으로 정의되어 있는 서블릿을 사용하겠다 선언. -->
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- 요청 정보를 분석해서 컨트롤러를 선택하는 서블릿을 지정 -->
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+
+		<!-- spring mvc에서 제공하는 기본 서블릿을 지정 -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+		<!-- xml 파일 지정 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/servlet-context.xml</param-value>
+		</init-param>
+
+		<!-- 톰캣 컨테이너가 실행되면서 미리 서블릿을 실행 지정한 숫자가 0보다 크면 톰캣 컨테이너가 실행되면서 서블릿이 초기화됨 
+			숫자는 우선 순위를 의미하며 작은 숫자부터 먼저 초기화 된다. -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- bean을 정의할 xml파일 지정 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/config/root-context.xml</param-value>
+	</context-param>
+
+	<!-- 리스너 설정 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- 파라미터 인코딩 필터 설정 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
