@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="kr.co.ezenac.beans.DataBean1" scope="session"></bean>
+	<bean class="kr.co.ezenac.beans.DataBean2" scope="session" id="sessionBean2"></bean>
+	<bean class="kr.co.ezenac.beans.DataBean3" scope="session" ></bean>
+	<bean class="kr.co.ezenac.beans.DataBean4" scope="session" id="sessionBean4"></bean>
+</beans>
